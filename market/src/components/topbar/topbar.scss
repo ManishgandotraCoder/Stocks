@@ -1,0 +1,50 @@
+.item_text {
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.topbar {
+    background-color: #5F8575;
+    height: 35px;
+}
+
+.slash_text {
+    color: aliceblue;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+.invest_text {
+    color: aliceblue;
+    margin-left: 10%;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.input {
+    width: 60%;
+    margin-left: 20px;
+    margin-top: 2px;
+
+}
+
+.sign {
+    margin-left: 20px;
+    color: aliceblue;
+
+}
+
+.popover {
+    color: #FFF;
+    background: #5F8575;
+
+}
+.popover :hover{
+    color: #5F8575;
+    background: #FFF;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 3px;
+}

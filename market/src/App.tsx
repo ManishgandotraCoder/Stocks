@@ -4,7 +4,8 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import Topbar from "./components/topbar"
+import Topbar from "./components/topbar/topbar"
+import Coin from './dashboard/coin';
 import Crypto from './dashboard/crypto';
 import Dashboard from './dashboard/dashboard';
 import Sharemarket from './dashboard/sharemarket';
@@ -28,8 +29,11 @@ const router = [
   {
     path: "/crypto",
     element: <Crypto />,
+  },
+  {
+    path: "/crypto/:coin",
+    element: <Coin />
   }
-
 
 ];
 
@@ -40,7 +44,7 @@ const App = () => {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: '#00b96b',
+          colorPrimary: '#5F8575',
         },
       }}
     >
