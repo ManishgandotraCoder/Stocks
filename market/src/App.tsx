@@ -5,8 +5,8 @@ import {
   Routes,
 } from "react-router-dom";
 import Topbar from "./components/topbar/topbar"
-import Coin from './dashboard/coin';
-import Crypto from './dashboard/crypto';
+import Coin from './pages/crypto-coin/coin';
+import Crypto from './pages/crypto/crypto';
 import Dashboard from './dashboard/dashboard';
 import Sharemarket from './dashboard/sharemarket';
 import USStocks from './dashboard/usestocks';
@@ -44,7 +44,7 @@ const App = () => {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: '#5F8575',
+          colorPrimary: '#000000',
         },
       }}
     >

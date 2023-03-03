@@ -3,17 +3,7 @@ import { Popover, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import './topbar.scss'
 import { Input, Space } from 'antd';
-const contentList = [
-    "Bitcoin",
-    "Etherium",
-    "Solana",
-    "Dogecoin",
-    "Filecoin",
-    "Algorand",
-    "Ripple",
-    "Cardano",
-    "Fantom",
-]
+import * as cryptoJSON from "../../crypto"
 
 function Topbar(props: any) {
     const navigate = useNavigate();
@@ -22,7 +12,7 @@ function Topbar(props: any) {
     }
     const content = (
         <div className="popover">
-            {contentList.map(text => <p onClick={() => changePath(`/crypto/${text}`)}>{text}</p>)}
+            {cryptoJSON.default.slice(0, 10).map(text => <p onClick={() => changePath(`/crypto/${text.id}`)}>{text.name}</p>)}
 
 
             <a onClick={() => changePath('/crypto')}>View More..</a>
@@ -82,16 +72,16 @@ function Topbar(props: any) {
             <center>
 
                 <div className='topbar '>
-                    <Popover placement="topLeft" title={<span>Crypto Currency</span>} content={content} arrow={mergedArrow} color="#5F8575">
+                    <Popover placement="topLeft" title={<span>Crypto Currency</span>} content={content} arrow={mergedArrow} color="#000000">
                         <span className='item_text ' onClick={() => changePath('crypto')} >Crypto</span>
                     </Popover>
                     <span className='slash_text'>|</span>
-                    <Popover placement="topLeft" title={<span>US Stocks</span>} content={content_us} arrow={mergedArrow} color="#5F8575">
+                    <Popover placement="topLeft" title={<span>US Stocks</span>} content={content_us} arrow={mergedArrow} color="#000000">
 
                         <span className='item_text' onClick={() => changePath('us-stocks')}>US Stocks</span>
                     </Popover>
                     <span className='slash_text'>|</span>
-                    <Popover placement="topLeft" title={<span>Indian stocks</span>} content={content_ind} arrow={mergedArrow} color="#5F8575">
+                    <Popover placement="topLeft" title={<span>Indian stocks</span>} content={content_ind} arrow={mergedArrow} color="#000000">
 
                         <span className='item_text' onClick={() => changePath('share-market')}>Indian stocks</span>
                     </Popover>
