@@ -12,7 +12,7 @@ function Topbar(props: any) {
     }
     const content = (
         <div className="popover">
-            {cryptoJSON.default.slice(0, 10).map(text => <p onClick={() => changePath(`/crypto/${text.id}`)}>{text.name}</p>)}
+            {cryptoJSON.default.slice(0, 10).map((text: any) => <p onClick={() => changePath(`/crypto/${text?.id}`)}>{text.name}</p>)}
 
 
             <a onClick={() => changePath('/crypto')}>View More..</a>
