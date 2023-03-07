@@ -1,9 +1,11 @@
+@import '../../commonscss/color.scss';
+
 .col_icon {
-  border: 0.5px solid rgb(152, 152, 152);
+  border: 0.5px solid $light_grey;
   // padding: 5px;
   margin: 2px;
   border-radius: 4px;
-  background-color: rgb(240, 245, 245);
+  background-color: $light
 }
 
 .price_text {
@@ -14,11 +16,13 @@
   margin-left: 10px;
   text-transform: capitalize;
   font-size: 10px;
-  color: rgb(148, 146, 146);
+  // color: $light;
 }
 
 .img {
   height: 15px;
+  width: 15px;
+
   margin-right: 5px;
 }
 
@@ -30,25 +34,20 @@
 
 #customers td,
 #customers th {
-  border: 1px solid #ddd;
+  border-bottom: 1px solid $light_grey;
   padding: 8px;
 }
 
-#customers tr:nth-child(even) {
-  background-color: #d3d0d0;
-}
-
 #customers tr:hover {
-  background-color: #ddd;
+  background-color: $light_grey;
 }
 
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #242323;
+  background-color: $darker;
   color: white;
 }
-.table {
- 
-}
+
+.table {}

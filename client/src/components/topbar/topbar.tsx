@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './topbar.scss'
 import { Input, Space } from 'antd';
 import * as cryptoJSON from "../../crypto"
+import '../../commonscss/color.scss'
 
 function Topbar(props: any) {
     const navigate = useNavigate();
@@ -61,15 +62,20 @@ function Topbar(props: any) {
         <>
 
             <div className='topbar'>
-                <span className='invest_text' onClick={() => changePath('/')}>Lets Invest</span>
+                <img className='img' src="https://cdn-icons-png.flaticon.com/512/2390/2390344.png"></img>
+                <span className='invest_text' onClick={() => changePath('/')}>Lets Invest</span>&nbsp;&nbsp;
+                <Popover placement="topLeft" title={<span className='item_text '>Cryptocurrencies</span>} content={content} arrow={mergedArrow} color="$darker">
+                    <span className='item_text ' onClick={() => changePath('crypto')} >Cryptocurrencies</span>
+                </Popover>
                 <Input
                     placeholder="Search here"
                     className='input'
                 />
-                <span className='sign'>Sign In / Sign Up</span>
+                {/* <span className='sign'>Sign In</span>
+                <Button className='signup'>Sign Up</Button> */}
             </div>
 
-            <center>
+            {/* <center>
 
                 <div className='topbar '>
                     <Popover placement="topLeft" title={<span>Crypto Currency</span>} content={content} arrow={mergedArrow} color="#000000">
@@ -87,7 +93,7 @@ function Topbar(props: any) {
                     </Popover>
 
                 </div>
-            </center>
+            </center> */}
         </>
         // <Layout>
         //     <Header className="header" color="#000">

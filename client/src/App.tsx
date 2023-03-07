@@ -15,7 +15,7 @@ const router = [
 
   {
     path: "/",
-    element: <Dashboard />,
+    element: <Crypto />,
   },
   {
     path: "/us-stocks",
