@@ -64,7 +64,7 @@ function Topbar(props: any) {
             <div className='topbar'>
                 <img className='img' src="https://cdn-icons-png.flaticon.com/512/2390/2390344.png"></img>
                 <span className='invest_text' onClick={() => changePath('/')}>Lets Invest</span>&nbsp;&nbsp;
-                <Popover placement="topLeft" title={<span className='item_text '>Cryptocurrencies</span>} content={content} arrow={mergedArrow} color="$darker">
+                <Popover placement="topLeft" title={<span className='item_text '>Cryptocurrencies</span>} content={content} arrow={mergedArrow} color="#317874">
                     <span className='item_text ' onClick={() => changePath('crypto')} >Cryptocurrencies</span>
                 </Popover>
                 <Input

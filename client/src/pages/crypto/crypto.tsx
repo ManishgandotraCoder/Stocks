@@ -4,7 +4,55 @@ import { EyeFilled } from "@ant-design/icons";
 import "./crypto.scss"
 import '../../commonscss/common.scss'
 import { useNavigate } from 'react-router-dom';
+import LineChart from "../../components/charts/lineChart"
+import { Line } from 'react-chartjs-2';
+const options = {
+    responsive: true,
+    height: "40vh",
+    legend: {
+        display: false
+    },
+    interaction: {
+        mode: 'index' as const,
+        intersect: false,
+    },
+    stacked: false,
+    plugins: {
+        title: {
+            display: false,
+            text: 'Chart.js Line Chart - Multi Axis',
+        },
+    },
+    scales: {
+        y: {
+            type: 'linear' as const,
+            display: false,
+            position: 'left' as const,
 
+        },
+        x: {
+            display: false,
+        },
+
+    }
+};
+
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+const data: any = {
+    labels,
+    datasets: [
+
+        {
+            label: 'Dataset 2',
+            display: false,
+            data: [3, 54, 123, 35],
+            borderColor: 'rgb(53, 162, 235)',
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            yAxisID: 'y',
+        },
+    ],
+};
 const Crypto = () => {
     const navigate = useNavigate()
     function onPageChange(path: any) {
@@ -35,6 +83,9 @@ const Crypto = () => {
                     <td>{item.current_price}$</td>
                     <td>{item.total_volume}$</td>
                     <td>{item.high_24h}$ - {item.low_24h}$</td>
+                    <td >
+                    <Line id={item.symbol} options={options} width={10}  height={5} data={data} />
+                    </td>
                 </tr>
             )}
 

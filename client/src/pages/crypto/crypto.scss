@@ -36,6 +36,7 @@
 #customers th {
   border-bottom: 1px solid $light_grey;
   padding: 8px;
+  cursor: pointer;
 }
 
 #customers tr:hover {
@@ -50,4 +51,3 @@
   color: white;
 }
 
-.table {}

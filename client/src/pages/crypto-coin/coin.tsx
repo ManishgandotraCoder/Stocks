@@ -4,7 +4,7 @@ import { Line } from '@ant-design/plots';
 import { Row, Col } from "antd"
 import * as cryptoJSON from "../../constants/graph"
 import * as cryptoInfo from "../../crypto"
-
+import LineChart from "../../components/charts/lineChart"
 import moment from 'moment';
 import { Breadcrumb } from 'antd';
 import '../../commonscss/common.scss'
@@ -52,7 +52,7 @@ const Coin = () => {
         <Col>
         </Col>
       <Col>
-        <Line {...config} />
+        <LineChart></LineChart>
       </Col>
       </Row>
 
