@@ -1,10 +1,8 @@
 import * as cryptoJSON from "../../crypto"
 import { Breadcrumb } from 'antd';
-import { EyeFilled } from "@ant-design/icons";
 import "./crypto.scss"
 import '../../commonscss/common.scss'
 import { useNavigate } from 'react-router-dom';
-import LineChart from "../../components/charts/lineChart"
 import { Line } from 'react-chartjs-2';
 const options = {
     responsive: true,
@@ -84,7 +82,7 @@ const Crypto = () => {
                     <td>{item.total_volume}$</td>
                     <td>{item.high_24h}$ - {item.low_24h}$</td>
                     <td >
-                    <Line id={item.symbol} options={options} width={10}  height={5} data={data} />
+                    {/* <Line id={item.symbol} options={options} width={10}  height={5} data={data} /> */}
                     </td>
                 </tr>
             )}
