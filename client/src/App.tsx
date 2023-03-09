@@ -7,7 +7,6 @@ import {
 import Topbar from "./components/topbar/topbar"
 import Coin from './pages/crypto-coin/coin';
 import Crypto from './pages/crypto/crypto';
-import Dashboard from './dashboard/dashboard';
 import Sharemarket from './dashboard/sharemarket';
 import USStocks from './dashboard/usestocks';
 

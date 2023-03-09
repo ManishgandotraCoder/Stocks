@@ -1,66 +1,95 @@
 @import '../../commonscss/color.scss';
 
 .item_text {
-    color: $light;
-    cursor: pointer;
-}
-
-.topbar {
-    background-color: $darker;
-    height: 35px;
-    padding: 10px;
-}
-
-.slash_text {
-    color: $light;
-    margin-left: 5px;
-    margin-right: 5px;
-
+  color: $light;
+  cursor: pointer;
 }
 
 .invest_text {
-    color: $light;
-    margin-left: 20px;
-    font-weight: bold;
-    font-size: 20px;
-    cursor: pointer;
+  color: $light;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .input {
-    width: 200px;
-    margin-left: 20px;
-    margin-top: 2px;
-
-}
-
-.sign {
-    margin-left: 20px;
-    color: $light;
+  width: 70%;
+  margin-left: 20px;
+  margin-top: 2px;
 
 }
 
 .popover {
-    color: $light;
-    background: $darker;
-    border-radius: 5px;
+  color: $light;
+  background: $darker;
+  border-radius: 5px;
 
 }
 
 .popover :hover {
-    background: $light;
-    color: $darker;
-    cursor: pointer;
-    border-radius: 5px;
+  background: $light;
+  color: $darker;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .cursor {
-    cursor: pointer;
-}
-
-.signup {
-    margin-left: 10px;
+  cursor: pointer;
 }
 
 .user_img {
-    height: 30px;
+  height: 33px;
+  border-radius: 50%;
+  margin-right: 50px;
+}
+
+#main {
+  display: flex;
+  background-color: $darker;
+  padding: 7px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#main div {
+  -ms-flex: 1;
+  /* IE 10 */
+  flex: 1;
+}
+
+// .sign {
+//   background-color: $darker;
+//   border: 1px solid $darker;
+//   width: 100%;
+//   color: $light;
+// }
+
+// .sign:hover {
+//   background-color: $darker;
+//   border: 1px solid $darker;
+//   width: 100%;
+//   color: $light;
+// }
+.pop_menu{
+  color: white;
+  margin: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.ant-btn-primary {
+  background-color: $darker;
+  border: 1px solid $darker;
+  width: 100%;
+  color: $light;
+}
+
+.ant-btn-primary:hover {
+  background-color: $darker;
+  border: 1px solid $darker;
+  width: 100%;
+  color: $light;
 }

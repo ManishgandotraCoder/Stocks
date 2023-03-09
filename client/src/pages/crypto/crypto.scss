@@ -27,9 +27,12 @@
 }
 
 #customers {
-  font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: calc(100% - 80px);
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+
 }
 
 #customers td,
@@ -47,7 +50,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: $darker;
+  background-color: $light_grey;
   color: white;
 }
 

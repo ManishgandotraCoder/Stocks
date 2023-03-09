@@ -1,7 +1,16 @@
-.name{
-    font-size: 20px;
+@import '../../commonscss/color.scss';
 
+.name {
+    margin-top: 50px;
+    background: $chart;
 }
-.div {
-    margin: 10px;
+
+.chartContainer {
+  width: 100px;
+  height: 100px;
+  max-width: 120px;
+}
+.parent {
+  height: 100px !important;
+  overflow: "hidden";
 }

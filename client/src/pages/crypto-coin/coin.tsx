@@ -1,68 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import { Line } from '@ant-design/plots';
-import { Row, Col } from "antd"
-import * as cryptoJSON from "../../constants/graph"
-import * as cryptoInfo from "../../crypto"
-import LineChart from "../../components/charts/lineChart"
-import moment from 'moment';
-import { Breadcrumb } from 'antd';
-import '../../commonscss/common.scss'
+import React from 'react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import {Col , Row} from "antd"
 import './coin.scss'
+import * as colors from "../../commonscss/color"
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-const prices: any = cryptoJSON?.default?.prices
-const data: any = []
-
-prices.forEach(function (value: any, key: any) {
-  let _date = new Date(value[0])
-  let _final_date = moment(_date).format('DD-MMM-YYYY');
-  data.push({ Date: _final_date, scales: value[1] })
-})
-
-const Coin = () => {
-
-
-  const config: any = {
-    data,
-    padding: 'auto',
-    xField: 'Date',
-    yField: 'scales',
-    xAxis: {
-      // type: 'timeCat',
-      tickCount: 5,
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top' as const,
     },
-  };
-
-  return <>
-    <Breadcrumb className='breadcrumb'>
-      <Breadcrumb.Item>
-        <a href="/">Dashboard</a>
-      </Breadcrumb.Item>
-      <Breadcrumb.Item>
-        <a href="/crypto">Crypto Currency</a>
-      </Breadcrumb.Item>
-      <Breadcrumb.Item>
-        <a href="/crypto">Crypto Currency</a>
-      </Breadcrumb.Item>
-    </Breadcrumb>
-    <Row>
-      <div className='div'>
-      <span className='name'>Bitcoin</span>
-      <Row>
-        <Col>
-        </Col>
-      <Col>
-        <LineChart></LineChart>
-      </Col>
-      </Row>
-
-      </div>
-      {/* <Col>
-        <Line {...config} />
-      </Col> */}
-
-    </Row>
-  </>
+    title: {
+      display: true,
+      text: 'Chart.js Line Chart',
+    },
+  },
 };
 
-export default Coin
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const color = colors.default.darker
+export const data = {
+  labels,
+  datasets: [
+    {
+      label: 'Dataset 1',
+      data: [21,4,11,54],
+      borderColor: {color},
+      backgroundColor: '#000',
+    }
+  ],
+};
+
+export default function Coin() {
+  return <>
+  <Row className='name'>
+    <Col span={8}>
+
+    </Col>
+    <Col span={16}>
+     <Line options={options} data={data} />;
+    </Col>
+  </Row>
+  </>;
+}

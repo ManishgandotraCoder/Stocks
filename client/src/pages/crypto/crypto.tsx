@@ -3,7 +3,6 @@ import { Breadcrumb } from 'antd';
 import "./crypto.scss"
 import '../../commonscss/common.scss'
 import { useNavigate } from 'react-router-dom';
-import { Line } from 'react-chartjs-2';
 const options = {
     responsive: true,
     height: "40vh",
@@ -81,9 +80,9 @@ const Crypto = () => {
                     <td>{item.current_price}$</td>
                     <td>{item.total_volume}$</td>
                     <td>{item.high_24h}$ - {item.low_24h}$</td>
-                    <td >
+                    {/* <td > */}
                     {/* <Line id={item.symbol} options={options} width={10}  height={5} data={data} /> */}
-                    </td>
+                    {/* </td> */}
                 </tr>
             )}
 
