@@ -24,10 +24,6 @@ function Topbar(props: any) {
     const [arrowAtCenter, setArrowAtCenter] = useState(false);
     const [open, setOpen] = useState(false);
 
-    useEffect(() => {
-        console.log(colors.default);
-
-    }, [])
     const mergedArrow = useMemo(() => {
         if (arrowAtCenter) return { arrowPointAtCenter: true };
         return showArrow;
