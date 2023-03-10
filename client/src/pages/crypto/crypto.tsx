@@ -1,59 +1,22 @@
-import * as cryptoJSON from "../../crypto"
 import { Breadcrumb } from 'antd';
 import "./crypto.scss"
 import '../../commonscss/common.scss'
 import { useNavigate } from 'react-router-dom';
-const options = {
-    responsive: true,
-    height: "40vh",
-    legend: {
-        display: false
-    },
-    interaction: {
-        mode: 'index' as const,
-        intersect: false,
-    },
-    stacked: false,
-    plugins: {
-        title: {
-            display: false,
-            text: 'Chart.js Line Chart - Multi Axis',
-        },
-    },
-    scales: {
-        y: {
-            type: 'linear' as const,
-            display: false,
-            position: 'left' as const,
-
-        },
-        x: {
-            display: false,
-        },
-
-    }
-};
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-const data: any = {
-    labels,
-    datasets: [
-
-        {
-            label: 'Dataset 2',
-            display: false,
-            data: [3, 54, 123, 35],
-            borderColor: 'rgb(53, 162, 235)',
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
-            yAxisID: 'y',
-        },
-    ],
-};
+import { useEffect, useState } from "react";
+import axios from "axios"
 const Crypto = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [coinlist, setCoinlist] = useState([])
     function onPageChange(path: any) {
         navigate(`/crypto/${path}`);
+    }
+
+    useEffect(() => {
+        getData()
+    }, [])
+    async function getData() {
+        const info = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`)
+        setCoinlist(info.data);
 
     }
     return <>
@@ -73,8 +36,8 @@ const Crypto = () => {
                 <th>Total Volume</th>
                 <th>Range(Last 24 hrs)</th>
             </tr>
-            {cryptoJSON.default.map((item, i) =>
-                <tr  onClick={() => onPageChange(item.id)}>
+            {coinlist.map((item: any, i) =>
+                <tr onClick={() => onPageChange(item.id)}>
                     <td>{i + 1}</td>
                     <td><img src={item.image} className="img" />{item.name}<span className="symbol">{item.symbol.toUpperCase()}</span></td>
                     <td>{item.current_price}$</td>

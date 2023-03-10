@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Popover, Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import './topbar.scss'
-import * as cryptoJSON from "../../crypto"
 import '../../commonscss/color.scss'
 import { Button, Modal } from 'antd';
 import * as colors from "../../commonscss/color"
@@ -12,13 +11,6 @@ function Topbar(props: any) {
     const changePath = (path: any) => {
         navigate(path)
     }
-    const content = (
-        <div className="popover">
-            {cryptoJSON.default.slice(0, 10).map((text: any) => <p onClick={() => changePath(`/crypto/${text?.id}`)}>{text.name}</p>)}
-            <a onClick={() => changePath('/crypto')}>View More..</a>
-
-        </div>
-    );
 
     const [showArrow, setShowArrow] = useState(true);
     const [arrowAtCenter, setArrowAtCenter] = useState(false);
@@ -46,7 +38,7 @@ function Topbar(props: any) {
             <div id="main">
                 <div>
                     <span className='invest_text' onClick={() => changePath('/')}>Hack$</span>&nbsp;&nbsp;
-                    <Popover placement="topLeft" title={<span className='item_text '>Cryptocurrencies</span>} content={content} arrow={mergedArrow} color={colors.default.darker}>
+                    <Popover placement="topLeft" title={<span className='item_text '>Cryptocurrencies</span>}  arrow={mergedArrow} color={colors.default.darker}>
                         <span className='item_text ' onClick={() => changePath('crypto')} >Cryptocurrencies</span>
                     </Popover>
                 </div>

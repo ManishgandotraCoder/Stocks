@@ -7,23 +7,12 @@ import {
 import Topbar from "./components/topbar/topbar"
 import Coin from './pages/crypto-coin/coin';
 import Crypto from './pages/crypto/crypto';
-import Sharemarket from './dashboard/sharemarket';
-import USStocks from './dashboard/usestocks';
 
 const router = [
 
   {
     path: "/",
     element: <Crypto />,
-  },
-  {
-    path: "/us-stocks",
-    element: <USStocks />,
-
-  },
-  {
-    path: "/share-market",
-    element: <Sharemarket />,
   },
   {
     path: "/crypto",

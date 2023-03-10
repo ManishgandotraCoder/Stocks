@@ -15,6 +15,7 @@ import { Col, Row, Tabs } from "antd";
 import "./coin.scss";
 import axios from "axios"
 import { useParams } from 'react-router-dom';
+
 const { TabPane } = Tabs;
 
 ChartJS.register(
@@ -29,14 +30,10 @@ ChartJS.register(
 );
 
 export const options = {
-  responsive: true,
-  events: [],
-  showTooltips: false,
-
-  plugins: {
-    legend: {
-      position: 'top' as const,
-    }
+  elements: {
+    point: {
+      radius: 1,
+    },
   },
 };
 
@@ -116,10 +113,11 @@ export default function Coin() {
                     {
                       data: historicData.map((coin) => coin[1]),
                       label: `Price ( Past ${365} Days ) in ${'usd'}`,
-                      borderColor: 'rgb(53, 162, 235)',
+                      borderColor: "#11e8f0",
+                      // borderColor: 'rgb(53, 162, 235)',
                       // backgroundColor: 'rgba(53, 162, 235, 0.5)',
-                      hoverBackgroundColor: 'red',
-                      hoverBorderColor: 'blue',
+                      // hoverBackgroundColor: 'red',
+                      // hoverBorderColor: 'blue',
 
                     },
                   ],
