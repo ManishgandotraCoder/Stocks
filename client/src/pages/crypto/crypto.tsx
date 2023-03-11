@@ -1,4 +1,4 @@
-import { Breadcrumb } from 'antd';
+import { Breadcrumb, Pagination } from 'antd';
 import "./crypto.scss"
 import '../../commonscss/common.scss'
 import { useNavigate } from 'react-router-dom';
@@ -15,15 +15,12 @@ const Crypto = () => {
         getData()
     }, [])
     async function getData() {
-        const info = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`)
+        const info = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1000&page=1&sparkline=false`)
         setCoinlist(info.data);
 
     }
     return <>
         <Breadcrumb className="breadcrumb">
-            <Breadcrumb.Item>
-                <a href="/">Dashboard</a>
-            </Breadcrumb.Item>
             <Breadcrumb.Item>
                 <a href="/crypto">Crypto Currency</a>
             </Breadcrumb.Item>
@@ -51,6 +48,7 @@ const Crypto = () => {
 
 
         </table>
+        <Pagination defaultCurrent={1} total={coinlist.length} />
         {/* {JSON.stringify(cryptoJSON)} */}
     </>;
 }

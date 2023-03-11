@@ -1,8 +1,10 @@
 @import '../../commonscss/color.scss';
 
 .name {
-    margin-top: 50px;
-    // background: $chart;
+    margin-top: 20px;
+    width: calc(100% - 80px);
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .chartContainer {
@@ -21,4 +23,12 @@
 }
 .image {
   width: 120px;
+}
+.spin {
+  margin-top: 150px;
+  // margin-left: 45%;
+}
+.fr{
+  float: right;
+  margin-right: 20px;
 }

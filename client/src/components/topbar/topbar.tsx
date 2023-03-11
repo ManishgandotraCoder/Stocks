@@ -29,8 +29,8 @@ function Topbar(props: any) {
     };
 
     const content_profile = [
-        <span  className='pop_menu ' onClick={showModal}>View Profile<br/></span>,
-        <span  className='pop_menu '>Sign Out</span>
+        <span className='pop_menu ' onClick={showModal}>Login<br /></span>,
+        <span className='pop_menu '>Sign Out</span>
 
     ]
     return (
@@ -38,7 +38,7 @@ function Topbar(props: any) {
             <div id="main">
                 <div>
                     <span className='invest_text' onClick={() => changePath('/')}>Hack$</span>&nbsp;&nbsp;
-                    <Popover placement="topLeft" title={<span className='item_text '>Cryptocurrencies</span>}  arrow={mergedArrow} color={colors.default.darker}>
+                    <Popover placement="topLeft" title={<span className='item_text '>Cryptocurrencies</span>} arrow={mergedArrow} color={colors.default.darker}>
                         <span className='item_text ' onClick={() => changePath('crypto')} >Cryptocurrencies</span>
                     </Popover>
                 </div>
@@ -46,7 +46,7 @@ function Topbar(props: any) {
                 <div>
                 </div>
                 <Popover placement="topLeft" title={<span className='item_text '>Ethan Hunt</span>} content={content_profile} arrow={mergedArrow} color={colors.default.darker}>
-                    <img  className='user_img cursor' src="https://i.pinimg.com/736x/f5/9b/fa/f59bfa54525e640a8d0fa3f2e219bb29.jpg"></img>
+                    <img className='user_img cursor' src="https://images.mubicdn.net/images/cast_member/2184/cache-2992-1547409411/image-w856.jpg?size=800x"></img>
                 </Popover>
             </div>
 
