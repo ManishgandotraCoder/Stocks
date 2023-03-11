@@ -9,11 +9,13 @@
     "test": "mocha test/**.ts",
     "coverage": "nyc ",
     "lint": "eslint .",
+    "type": "module",
     "html": "nyc report --reporter=html",
     "data": "mongo-erd --uri mongodb://127.0.0.1:27017 --db NodeTs, --outfile ./erd",
     "erd": "mongoose-erd-generator --format svg path src/models --output images"
   },
   "author": "Manish Gandotra",
+  "type": "module",
   "license": "ISC",
   "dependencies": {
     "@types/chai": "^4.2.12",
