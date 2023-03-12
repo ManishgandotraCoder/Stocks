@@ -48,7 +48,6 @@ const Crypto = () => {
 
 
         </table>
-        <Pagination defaultCurrent={1} total={coinlist.length} />
         {/* {JSON.stringify(cryptoJSON)} */}
     </>;
 }
