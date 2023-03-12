@@ -3,10 +3,13 @@ import "./crypto.scss"
 import '../../commonscss/common.scss'
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
-import axios from "axios"
+import * as CryptoActions from "../../redux/actions/crypto.actions"
+import { useDispatch, useSelector } from 'react-redux';
 const Crypto = () => {
     const navigate = useNavigate();
-    const [coinlist, setCoinlist] = useState([])
+    const dispatch = useDispatch()
+    const coinlist: any = useSelector((user: any) => user.crypto)
+
     function onPageChange(path: any) {
         navigate(`/crypto/${path}`);
     }
@@ -15,8 +18,7 @@ const Crypto = () => {
         getData()
     }, [])
     async function getData() {
-        const info = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1000&page=1&sparkline=false`)
-        setCoinlist(info.data);
+        dispatch(await CryptoActions.getData())
 
     }
     return <>
@@ -33,7 +35,7 @@ const Crypto = () => {
                 <th>Total Volume</th>
                 <th>Range(Last 24 hrs)</th>
             </tr>
-            {coinlist.map((item: any, i) =>
+            {coinlist && coinlist.length && coinlist.map((item: any, i: any) =>
                 <tr onClick={() => onPageChange(item.id)}>
                     <td>{i + 1}</td>
                     <td><img src={item.image} className="img" />{item.name}<span className="symbol">{item.symbol.toUpperCase()}</span></td>

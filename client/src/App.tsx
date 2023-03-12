@@ -41,10 +41,7 @@ const App = () => {
       <Routes>
         {router.map(rout =>
           <Route key={rout.path} path={rout.path} element={rout.element} />)}
-
       </Routes>
-      {/* <RouterProvider router={router} /> */}
-
     </ConfigProvider>
   </>;
 
