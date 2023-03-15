@@ -109,7 +109,6 @@ export default function Coin() {
             <Radio.Button value={"market_caps"}>Market Cap</Radio.Button>
             <Radio.Button value={"total_volumes"}>Total Volumes</Radio.Button>
           </Radio.Group>
-
           <Radio.Group value={day} buttonStyle="solid" onChange={(event: any) => onRadioChange(event.target.value)} className="fr">
             <Radio.Button value={1}>24h</Radio.Button>
             <Radio.Button value={7}>7d</Radio.Button>
@@ -123,7 +122,6 @@ export default function Coin() {
             <Spin tip="Loading" size="large" className='spin'>
               <div className="content" />
             </Spin> :
-
             <Line options={options}
               data={{
                 labels: historicData[typegraph].map((coin: any) => {
@@ -135,22 +133,17 @@ export default function Coin() {
                   // return days === 1 ? time : date.toLocaleDateString();
                   return date.toLocaleDateString()
                 }),
-
                 datasets: [
                   {
                     data: historicData[typegraph].map((coin: any) => coin[1]),
                     label: `Price ( Past ${day} Days ) in ${'usd'}`,
-                    borderColor: "#e86b6b",
+                    borderColor: "#000",
                   },
                 ],
               }}
-            />}       </Col>
+            />}
+        </Col>
       </>
-
     </Row>
-
-
   </>
-
-
 }

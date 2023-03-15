@@ -38,9 +38,9 @@ function Topbar(props: any) {
             <div id="main">
                 <div>
                     <span className='invest_text' onClick={() => changePath('/')}>Hack$</span>&nbsp;&nbsp;
-                    <Popover placement="topLeft" title={<span className='item_text '>Cryptocurrencies</span>} arrow={mergedArrow} color={colors.default.darker}>
+                    {/* <Popover placement="topLeft" title={<span className='item_text '>Cryptocurrencies</span>} arrow={mergedArrow} color={colors.default.darker}> */}
                         <span className='item_text ' onClick={() => changePath('crypto')} >Cryptocurrencies</span>
-                    </Popover>
+                    {/* </Popover> */}
                 </div>
 
                 <div>
