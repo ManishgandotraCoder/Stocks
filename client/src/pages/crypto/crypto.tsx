@@ -1,4 +1,3 @@
-import { Breadcrumb, Pagination } from 'antd';
 import "./crypto.scss"
 import '../../commonscss/common.scss'
 import { useNavigate } from 'react-router-dom';
@@ -22,11 +21,7 @@ const Crypto = () => {
 
     }
     return <>
-        <Breadcrumb className="breadcrumb">
-            <Breadcrumb.Item>
-                <a href="/crypto">Crypto Currency</a>
-            </Breadcrumb.Item>
-        </Breadcrumb>
+       
         <table id="customers" >
             <tr className="table">
                 <th>#</th>

@@ -1,94 +1,32 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Popover, Form, Input } from 'antd';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import mainLogo from '../../images/name_icon.png';
+import icon2 from '../../images/icon2_small.png'; 
 import { useNavigate } from 'react-router-dom';
-import './topbar.scss'
-import '../../commonscss/color.scss'
-import { Button, Modal } from 'antd';
-import * as colors from "../../commonscss/color"
-import * as ext from "../../constants/extentions"
-function Topbar(props: any) {
-    const navigate = useNavigate();
-    const changePath = (path: any) => {
-        navigate(path)
-    }
+import "./topbar.scss"
+export default function PrimarySearchAppBar() {
+  const navigate = useNavigate();
+  const changePath = (path: any) => {
+    navigate(path)
+  }
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar className="main" >
+        <Toolbar style={{ background: "#000" }} variant="dense">
+        <img className='cursor'  src={icon2} onClick={() => changePath('/')}></img>
+       <img className='cursor '  src={mainLogo} onClick={() => changePath('/')}></img>
 
-    const [showArrow, setShowArrow] = useState(true);
-    const [arrowAtCenter, setArrowAtCenter] = useState(false);
-    const [open, setOpen] = useState(false);
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
-    const mergedArrow = useMemo(() => {
-        if (arrowAtCenter) return { arrowPointAtCenter: true };
-        return showArrow;
-    }, [showArrow, arrowAtCenter]);
+          </Box>
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
 
-    const showModal = () => {
-        setOpen(true);
-    };
-    const handleCancel = () => {
-        setOpen(false);
-    };
+          </Box>
+        </Toolbar>
+      </AppBar>
 
-    const content_profile = [
-        <span className='pop_menu ' onClick={showModal}>Login<br /></span>,
-        <span className='pop_menu '>Sign Out</span>
-
-    ]
-    return (
-        <>
-            <div id="main">
-                <div>
-                    <span className='invest_text' onClick={() => changePath('/')}>Hack$</span>&nbsp;&nbsp;
-                    {/* <Popover placement="topLeft" title={<span className='item_text '>Cryptocurrencies</span>} arrow={mergedArrow} color={colors.default.darker}> */}
-                        <span className='item_text ' onClick={() => changePath('crypto')} >Cryptocurrencies</span>
-                    {/* </Popover> */}
-                </div>
-
-                <div>
-                </div>
-                <Popover placement="topLeft" title={<span className='item_text '>Ethan Hunt</span>} content={content_profile} arrow={mergedArrow} color={colors.default.darker}>
-                    <img className='user_img cursor' src="https://images.mubicdn.net/images/cast_member/2184/cache-2992-1547409411/image-w856.jpg?size=800x"></img>
-                </Popover>
-            </div>
-
-            <Modal
-                title={ext.default.title}
-                open={open}
-                footer={[]}
-                onCancel={handleCancel}
-
-            >
-                <Form.Item
-                    name="username"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
-                >
-                    <Input size='large' />
-                </Form.Item>
-
-                <Form.Item
-                    name="password"
-                    rules={[{ required: true, message: 'Please input your password!' }]}
-                >
-                    <Input.Password size='large' />
-                </Form.Item>
-                <Form.Item>
-                    <Button className='ant-btn-primary' htmlType="submit">
-                        Sign in
-                    </Button>
-                </Form.Item>
-                <Form.Item>
-                    <Button htmlType="submit">
-                        Google
-                    </Button>
-                    <Button htmlType="submit">
-                        Facebook
-                    </Button>
-                </Form.Item>
-
-            </Modal>
-        </>
-
-
-    );
-};
-
-export default Topbar;
+    </Box>
+  );
+}

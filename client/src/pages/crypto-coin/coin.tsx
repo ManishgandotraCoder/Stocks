@@ -71,21 +71,14 @@ export default function Coin() {
     await setTypegraph(e)
   }
   return <>
-    <Breadcrumb className="breadcrumb">
-
-      <Breadcrumb.Item>
-        <a href="/crypto">Crypto Currency</a>
-      </Breadcrumb.Item>
-      <Breadcrumb.Item>
-        <a href="/">{coinInfo.name}</a>
-      </Breadcrumb.Item>
-    </Breadcrumb>
+    
     <Row className='name'>
 
       <>
 
         <Col span={6}>
           <div>
+           
             <center>
               <img className='image' src={coinInfo?.image?.large} />
               <br />
@@ -93,7 +86,7 @@ export default function Coin() {
               <br />
 
             </center>
-            <span>{coinInfo?.description?.en.split('.')[0]}</span><br />
+            
             <span>Current Price : ${coinInfo?.market_data?.current_price?.usd}</span><br />
             <span>Market CAP : ${coinInfo?.market_data?.market_cap?.usd}</span><br />
             <span>High 24h : ${coinInfo?.market_data?.high_24h?.usd}</span><br />
