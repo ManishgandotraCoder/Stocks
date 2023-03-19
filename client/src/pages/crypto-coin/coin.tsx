@@ -135,7 +135,7 @@ export default function Coin() {
                   {
                     data: historicData[typegraph].map((coin: any) => coin[1]),
                     label: `Price ( Past ${day} Days ) in ${'usd'}`,
-                    borderColor: "#000",
+                    borderColor: "rgb(55, 234, 247)",
                   },
                 ],
               }}
