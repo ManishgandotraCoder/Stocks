@@ -1,50 +1,54 @@
 @import '../../commonscss/color.scss';
 
 .img {
-    width: 40px;
+  width: 40px;
 }
 
 .dms {
-    margin-left: 5px;
-    color: $pinku ;
-    font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
+  margin-left: 5px;
+  color: $pinku ;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
   cursor: pointer;
-  }
+  margin-top: 25px;
+}
 
 .dropdown_icon {
-    margin-left: 20px;
-    color: $light;
-    font-size: 20px;
-    cursor: pointer;
+  margin-left: 20px;
+  color: $light;
+  font-size: 20px;
+  cursor: pointer;
 
 }
 
 .dropdown_names {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    cursor: pointer;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  cursor: pointer;
 }
 
 
 
 .icon_text {
-    margin-left: 4px;
-    color: $light;
-    cursor: pointer;
+  margin-left: 4px;
+  margin-top: -2.5px;
+  color: $light;
+  cursor: pointer;
 }
+
 .icon_text_pop {
   margin-left: 4px;
   color: $dark_grey;
   cursor: pointer;
 }
-.toolbar{
-    position: fixed;
-    top :0;
-    left :0;
-    right: 0;
-    z-index: 1000;
+
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }

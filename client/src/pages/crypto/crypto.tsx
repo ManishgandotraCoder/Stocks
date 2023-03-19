@@ -89,13 +89,13 @@ export default function StickyHeadTable() {
 
                                             </div>
                                         </TableCell>
-                                        <TableCell key={"name"} align={'left'}>
+                                        <TableCell key={"current_price"} align={'left'}>
                                             $ {row.current_price.toLocaleString('en-US')}
                                         </TableCell>
-                                        <TableCell key={"name"} align={'left'}>
+                                        <TableCell key={"total_volume"} align={'left'}>
                                             $ {row.total_volume.toLocaleString('en-US')}
                                         </TableCell>
-                                        <TableCell key={"name"} align={'left'}>
+                                        <TableCell key={"high_24h"} align={'left'}>
                                             {row.high_24h.toLocaleString('en-US')}$ - {row.low_24h.toLocaleString('en-US')}$
                                         </TableCell>
                                     </TableRow>
