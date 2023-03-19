@@ -11,11 +11,14 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { Col, Row, Breadcrumb, Spin, Radio } from "antd";
+import { Col, Row, Spin, Radio } from "antd";
 import "./coin.scss";
 import axios from "axios"
 import { useParams } from 'react-router-dom';
-import * as colors from "../../commonscss/color"
+import * as colors from "../../commonscss/color";
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -36,7 +39,6 @@ export const options = {
 };
 
 export default function Coin() {
-  const chartColor = colors.default.darker
   const typeCoininfo: any = {}
   const [historicData, setHistoricData] = useState(typeCoininfo);
   const [coinInfo, setCoinInfo] = useState(typeCoininfo);
@@ -71,28 +73,31 @@ export default function Coin() {
     await setTypegraph(e)
   }
   return <>
-    
+
     <Row className='name'>
 
       <>
 
         <Col span={6}>
-          <div>
-           
-            <center>
-              <img className='image' src={coinInfo?.image?.large} />
-              <br />
+          
+          <CardContent>
+            <img className='image' src={coinInfo?.image?.large} />
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
               <span className='head'>#{coinInfo.coingecko_rank} {coinInfo.name}</span>
-              <br />
-
-            </center>
-            
-            <span>Current Price : ${coinInfo?.market_data?.current_price?.usd}</span><br />
-            <span>Market CAP : ${coinInfo?.market_data?.market_cap?.usd}</span><br />
-            <span>High 24h : ${coinInfo?.market_data?.high_24h?.usd}</span><br />
-            <span>Low 24h : ${coinInfo?.market_data?.low_24h?.usd}</span>
-
-          </div>
+            </Typography>
+            <Typography sx={{ fontSize: 17 }} variant="h5" component="div">
+              <span>Current Price : ${coinInfo?.market_data?.current_price?.usd}</span>
+            </Typography>
+            <Typography sx={{ fontSize: 17 }} variant="h5" component="div">
+              <span>Market CAP : ${coinInfo?.market_data?.market_cap?.usd}</span><br />
+            </Typography>
+            <Typography sx={{ fontSize: 17 }} variant="h5" component="div">
+              <span>High 24h : ${coinInfo?.market_data?.high_24h?.usd}</span><br />
+            </Typography>
+            <Typography sx={{ fontSize: 17 }} variant="h5" component="div">
+              <span>Low 24h : ${coinInfo?.market_data?.low_24h?.usd}</span>
+            </Typography>
+          </CardContent>
 
         </Col>
         <Col span={18}>

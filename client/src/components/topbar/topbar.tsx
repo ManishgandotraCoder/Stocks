@@ -1,32 +1,78 @@
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import mainLogo from '../../images/name_icon.png';
-import icon2 from '../../images/icon2_small.png'; 
-import { useNavigate } from 'react-router-dom';
+import { Toolbar, Box, Popover, Typography } from "@mui/material"
+import React from "react";
+import AppIcon from "../../images/icon2.png"
 import "./topbar.scss"
-export default function PrimarySearchAppBar() {
-  const navigate = useNavigate();
-  const changePath = (path: any) => {
-    navigate(path)
-  }
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar className="main" >
-        <Toolbar style={{ background: "#000" }} variant="dense">
-        <img className='cursor'  src={icon2} onClick={() => changePath('/')}></img>
-       <img className='cursor '  src={mainLogo} onClick={() => changePath('/')}></img>
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import FiberNewIcon from '@mui/icons-material/FiberNew';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { useNavigate } from "react-router-dom";
 
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+const Header = () => {
+  const navigate = useNavigate()
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
 
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-          </Box>
-        </Toolbar>
-      </AppBar>
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+  return <>
+    <Box sx={{ flexGrow: 1 }} className="toolbar">
+      <Toolbar style={{ background: '#000' }} variant="dense">
+        <img className="img" src={AppIcon} />
+        <Typography className="dms" onClick={() => navigate('/')}>DM Stocks</Typography>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          padding: '10px',
+          // marginTop:"10px"
+
+        }}>
+          <span onMouseOver={handleClick} className="icon_text">Discover</span>  <ArrowDropDownIcon className="icon_text" />
+
+        </div>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+        >
+          <div
+            onClick={() => navigate('crypto')}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              padding: '20px'
+
+            }}>
+            <StorefrontIcon className="icon_text_pop" />
+            <span className="icon_text_pop">Market</span>
+          </div>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            padding: '10px 20px'
+          }}>
+            <FiberNewIcon className="icon_text_pop" />
+            <span className="icon_text_pop">New Coins</span>
+          </div>
+        </Popover>
+      </Toolbar>
     </Box>
-  );
+
+  </>
 }
+
+export default Header

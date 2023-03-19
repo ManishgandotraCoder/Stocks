@@ -1,55 +1,29 @@
 @import '../../commonscss/color.scss';
 
-.col_icon {
-  border: 0.5px solid $light_grey;
-  // padding: 5px;
-  margin: 2px;
-  border-radius: 4px;
-  background-color: $light
-}
-
-.price_text {
-  font-size: 10px;
-}
-
-.symbol {
-  margin-left: 10px;
-  text-transform: capitalize;
-  font-size: 10px;
-  // color: $light;
-}
-
 .img {
-  height: 15px;
-  width: 15px;
-
-  margin-right: 5px;
+  height: 30px;
+  width: 30px;
 }
 
-#customers {
-  border-collapse: collapse;
+.title {
+  color: $dark_grey;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.namer {
+  color: $dark_grey;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.paper {
   width: calc(100% - 80px);
-  margin-top: 20px;
   margin-left: 40px;
   margin-right: 40px;
-
-}
-
-#customers td,
-#customers th {
-  border-bottom: 1px solid $light_grey;
-  padding: 8px;
+  margin-top: 70px;
   cursor: pointer;
-}
-
-#customers tr:hover {
-  background-color: $light_grey;
-}
-
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: $light_grey;
-  color: white;
 }

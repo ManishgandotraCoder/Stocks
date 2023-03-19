@@ -1,17 +1,33 @@
-import "./crypto.scss"
-import '../../commonscss/common.scss'
+import * as React from 'react';
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
+import TableRow from '@mui/material/TableRow';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
-import * as CryptoActions from "../../redux/actions/crypto.actions"
-import { useDispatch, useSelector } from 'react-redux';
-const Crypto = () => {
+import * as CryptoActions from "./../../redux/actions/crypto.actions"
+import "./crypto.scss"
+
+export default function StickyHeadTable() {
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+    const handleChangePage = (event: unknown, newPage: number) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setRowsPerPage(+event.target.value);
+        setPage(0);
+    };
     const navigate = useNavigate();
     const dispatch = useDispatch()
     const coinlist: any = useSelector((user: any) => user.crypto)
-
-    function onPageChange(path: any) {
-        navigate(`/crypto/${path}`);
-    }
 
     useEffect(() => {
         getData()
@@ -20,32 +36,83 @@ const Crypto = () => {
         dispatch(await CryptoActions.getData())
 
     }
-    return <>
-       
-        <table id="customers" >
-            <tr className="table">
-                <th>#</th>
-                <th>Currency</th>
-                <th>Price</th>
-                <th>Total Volume</th>
-                <th>Range(Last 24 hrs)</th>
-            </tr>
-            {coinlist && coinlist.length && coinlist.map((item: any, i: any) =>
-                <tr onClick={() => onPageChange(item.id)}>
-                    <td>{i + 1}</td>
-                    <td><img src={item.image} className="img" />{item.name}<span className="symbol">{item.symbol.toUpperCase()}</span></td>
-                    <td>{item.current_price}$</td>
-                    <td>{item.total_volume}$</td>
-                    <td>{item.high_24h}$ - {item.low_24h}$</td>
-                    {/* <td > */}
-                    {/* <Line id={item.symbol} options={options} width={10}  height={5} data={data} /> */}
-                    {/* </td> */}
-                </tr>
-            )}
+    return (
+        <Paper className='paper'>
+            <TableContainer className='table' >
+                <Table >
+                    <TableHead>
+                        <TableRow>
 
+                            <TableCell
+                                key={"Current price"}
+                                align={"left"}
+                            >
+                                Current price
+                            </TableCell>
+                            <TableCell
+                                key={"Current price"}
+                                align={"left"}
+                            >
+                                Current price
+                            </TableCell>
+                            <TableCell
+                                key={"Total volume"}
+                                align={"left"}
+                            >
+                                Total volume
+                            </TableCell>
+                            <TableCell
+                                key={"Range"}
+                                align={"left"}
+                            >
+                                Range
+                            </TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {coinlist && coinlist.length && coinlist
+                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            .map((row: any) => {
+                                return (
+                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code} onClick={() => navigate(`/crypto/${row.id}`)}>
+                                        {/* {JSON.stringify(row)} */}
+                                        <TableCell key={"name"} >
+                                            <div style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                flexWrap: 'wrap',
 
-        </table>
-        {/* {JSON.stringify(cryptoJSON)} */}
-    </>;
+                                            }}>
+                                                <img src={row.image} className="img" />&nbsp;
+                                                <span className='title'>{row.symbol.toUpperCase()}</span>&nbsp;
+                                                <span className='namer'>{row.name}</span>
+
+                                            </div>
+                                        </TableCell>
+                                        <TableCell key={"name"} align={'left'}>
+                                            $ {row.current_price.toLocaleString('en-US')}
+                                        </TableCell>
+                                        <TableCell key={"name"} align={'left'}>
+                                            $ {row.total_volume.toLocaleString('en-US')}
+                                        </TableCell>
+                                        <TableCell key={"name"} align={'left'}>
+                                            {row.high_24h.toLocaleString('en-US')}$ - {row.low_24h.toLocaleString('en-US')}$
+                                        </TableCell>
+                                    </TableRow>
+                                );
+                            })}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+            <TablePagination
+                rowsPerPageOptions={[10, 25, 100]}
+                component="div"
+                count={coinlist.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+        </Paper>
+    );
 }
-export default Crypto
