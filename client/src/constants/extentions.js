@@ -1,3 +1,3 @@
 export default {
-    title :"Hack$"
+    title :"Capital $tocks"
 }

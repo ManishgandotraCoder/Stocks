@@ -26,11 +26,11 @@ const Header = () => {
 
   return <>
     <Box sx={{ flexGrow: 1 }} className="toolbar">
-      <Toolbar style={{ background: '#000' }} variant="dense">
+      <Toolbar style={{ background: '#FFF' }} variant="dense">
         <img className="img" src={AppIcon} />
-        <Typography className="dms" onClick={() => navigate('/')}>DM Stocks</Typography>
+        <Typography className="dms" onClick={() => navigate('/')}>Capital $tocks</Typography>
 
-        <span onMouseOver={handleClick} className="icon_text">Discover</span>  <ArrowDropDownIcon className="icon_text" />
+        <span onMouseOver={handleClick} className="icon_text">Discover</span>  <ArrowDropDownIcon className="icon_text2" />
 
         <Menu
           id="basic-menu"
@@ -55,7 +55,9 @@ const Header = () => {
             <ListItemText>New Currency</ListItemText>
           </MenuItem>
         </Menu>
-
+        <Box style ={{float :"right"}}>
+          <span>Button Aligned To The Right</span>
+        </Box>
       </Toolbar>
     </Box>
 
