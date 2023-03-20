@@ -1,5 +1,3 @@
-import { Button, ConfigProvider } from 'antd';
-import React from 'react';
 import {
   Route,
   Routes,
@@ -38,20 +36,13 @@ const App = () => {
 
 
   return <>
-    <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: '#000',
-        },
-      }}
-    >
+    
 
       <Topbar />
       <Routes>
         {router.map(rout =>
           <Route key={rout.path} path={rout.path} element={rout.element} />)}
       </Routes>
-    </ConfigProvider>
   </>;
 
 }
