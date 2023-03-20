@@ -1,13 +1,10 @@
 const initialState = 0;
 const change = (state = initialState, action: any) => {
     switch (action.type) {
-        case "GET_ALL_CRYPTO":
+        case "AUTHENTICATE":
             return action.payload;
-        case "COIN_DETAILS":
-            return { c_details: action.payload };
-        case "COIN_GRAPH":
-            return { c_graph_details: action.payload };
-
+        case "REGISTER":
+            return action.payload
         default: return state;
     }
 }
