@@ -14,19 +14,6 @@ const Header = () => {
   const [login, setLogin] = useState(false)
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
-  const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    pt: 2,
-    px: 4,
-    pb: 3,
-  };
   
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -40,7 +27,7 @@ const Header = () => {
 
   return <>
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar className="toolbar">
+      <AppBar >
         <Toolbar style={{ background: '#000' }} variant="dense" >
           <img className="img" src={AppIcon} />&nbsp;
           <Typography className="dms" onClick={() => navigate('/')}> Capital $tocks</Typography>

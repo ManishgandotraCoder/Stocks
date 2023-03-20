@@ -20,7 +20,7 @@ export default function SignUp() {
     const [error, setError] = React.useState(false)
     const [emailID, setEmailId] = React.useState('')
     const [password, setPassword] = React.useState('')
-    const [name , setName ] = React.useState('')
+    const [name, setName] = React.useState('')
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         setError(true)
         event.preventDefault();
@@ -63,7 +63,7 @@ export default function SignUp() {
                         }}
                     >
                         <Typography component="h1" variant="h5">
-                            Sign up
+                            Sign Up
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                             <TextField
@@ -114,18 +114,18 @@ export default function SignUp() {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                Sign In
+                                Sign UP
                             </ColorButton>
 
                             <Grid container>
                                 <Grid item xs>
-                                {/* <Link onClick={() => navigate('/forgot-password')} variant="body2">
+                                    {/* <Link onClick={() => navigate('/forgot-password')} variant="body2">
                                         Forgot password?
                                     </Link> */}
                                 </Grid>
                                 <Grid item>
-                                    <Link onClick={() => navigate('/sign-up')} variant="body2">
-                                        {"Don't have an account? Sign Up"}
+                                    <Link className='link'onClick={() => navigate('/sign-in')} variant="body2">
+                                        {"Already have an account? Sign In"}
                                     </Link>
                                 </Grid>
                             </Grid>
