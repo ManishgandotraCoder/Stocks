@@ -131,7 +131,7 @@ export default function Coin() {
                   // return days === 1 ? time : date.toLocaleDateString();
                   return date.toLocaleDateString()
                 }),
-                datasets: [
+                datasets: [ 
                   {
                     data: historicData[typegraph].map((coin: any) => coin[1]),
                     label: `Price ( Past ${day} Days ) in ${'usd'}`,
