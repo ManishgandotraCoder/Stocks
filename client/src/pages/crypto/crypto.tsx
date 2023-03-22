@@ -12,18 +12,25 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import * as CryptoActions from "./../../redux/actions/crypto.actions"
 import "./crypto.scss"
+import Progress from '../../components/progressbar/progress';
 
 export default function StickyHeadTable() {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [loader, setLoader] = React.useState(true);
 
     const handleChangePage = (event: unknown, newPage: number) => {
+        setLoader(true)
         setPage(newPage);
+        setLoader(false)
     };
 
     const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setLoader(true)
         setRowsPerPage(+event.target.value);
         setPage(0);
+        setLoader(false)
+
     };
     const navigate = useNavigate();
     const dispatch = useDispatch()
@@ -34,10 +41,12 @@ export default function StickyHeadTable() {
     }, [])
     async function getData() {
         dispatch(await CryptoActions.getData())
-
+        setLoader(false)
     }
     return (
-        <Paper className='paper'>
+
+<>
+        {loader ? <Progress/> : <Paper className='paper'>
             <TableContainer className='table' >
                 <Table >
                     <TableHead>
@@ -113,6 +122,8 @@ export default function StickyHeadTable() {
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
             />
-        </Paper>
+        </Paper>}
+</>
+
     );
 }

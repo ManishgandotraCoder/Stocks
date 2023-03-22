@@ -15,9 +15,9 @@ import { Col, Row, Spin, Radio } from "antd";
 import "./coin.scss";
 import axios from "axios"
 import { useParams } from 'react-router-dom';
-import * as colors from "../../commonscss/color";
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import Progress from '../../components/progressbar/progress';
 
 ChartJS.register(
   CategoryScale,
@@ -79,7 +79,7 @@ export default function Coin() {
       <>
 
         <Col span={6}>
-          
+
           <CardContent>
             <img className='image' src={coinInfo?.image?.large} />
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -117,9 +117,7 @@ export default function Coin() {
             <Radio.Button value={365}>1y</Radio.Button>
           </Radio.Group>
           {loader ?
-            <Spin tip="Loading" size="large" className='spin'>
-              <div className="content" />
-            </Spin> :
+            <Progress /> :
             <Line options={options}
               data={{
                 labels: historicData[typegraph].map((coin: any) => {
@@ -131,7 +129,7 @@ export default function Coin() {
                   // return days === 1 ? time : date.toLocaleDateString();
                   return date.toLocaleDateString()
                 }),
-                datasets: [ 
+                datasets: [
                   {
                     data: historicData[typegraph].map((coin: any) => coin[1]),
                     label: `Price ( Past ${day} Days ) in ${'usd'}`,

@@ -36,13 +36,13 @@ const App = () => {
 
 
   return <>
-    
 
-      <Topbar />
-      <Routes>
-        {router.map(rout =>
-          <Route key={rout.path} path={rout.path} element={rout.element} />)}
-      </Routes>
+
+    <Topbar />
+    <Routes>
+      {router.map(rout =>
+        <Route key={rout.path} path={rout.path} element={rout.element} />)}
+    </Routes>
   </>;
 
 }
