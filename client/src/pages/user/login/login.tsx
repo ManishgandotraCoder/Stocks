@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import * as userActions from "./../../../redux/actions/user.actions"
 import { useDispatch, useSelector } from 'react-redux';
-import Progress from '../../../components/progressbar/progress';
+import { CircularProgress } from '@mui/material';
 
 
 const theme = createTheme();
@@ -25,16 +25,18 @@ export default function SignInSide() {
     const [error, setError] = React.useState(false)
     const [emailID, setEmailId] = React.useState('')
     const [password, setPassword] = React.useState('')
+    const [loader , setLoader]= React.useState(false)
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         setError(true)
+        setLoader(true)
         event.preventDefault();
         dispatch(await userActions.authenticate(emailID, password))
-
+        setLoader(false)
     };
     React.useEffect(() => {
         if (userInfo.loginMessage === "User login successfully") {
             localStorage.setItem('user', JSON.stringify(userInfo?.userInformation));
-            navigate('/')
+            window.location.href = '/'
         }
 
     }, [userInfo.loginMessage])
@@ -114,14 +116,15 @@ export default function SignInSide() {
                                 Sign In
                             </ColorButton>
                             <Typography style={userInfo?.loginMessage === "User login successfully" ? { color: "black " } : { color: "red" }}>{userInfo?.loginMessage}</Typography>
+                            {loader ? <CircularProgress className='progress' color="inherit"/> :""}
                             <Grid container>
                                 {/* <Grid item xs>
                                     
                                 </Grid> */}
                                 <Grid >
-                                    <Link className='link' onClick={() => navigate('/sign-up')} variant="body2">
+                                    {/* <Link className='link' onClick={() => navigate('/sign-up')} variant="body2">
                                         {"Don't have an account? Sign Up"}
-                                    </Link>
+                                    </Link> */}
                                 </Grid>
 
                                 {/* ::::::::: {JSON.stringify(userInfo?.loginMessage)} */}
