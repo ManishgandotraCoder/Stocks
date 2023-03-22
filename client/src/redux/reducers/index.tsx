@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import crypto from './crypto.reducers'
+import cryptoReducers from './crypto.reducers'
+import userReducers from './user.reducers'
 
 const rootReducer = combineReducers({
-    crypto : crypto
+    crypto : cryptoReducers,
+    user: userReducers
 });
 
 export default rootReducer;

@@ -11,20 +11,33 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import "./login.scss"
 import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
+import * as userActions from "./../../../redux/actions/user.actions"
+import { useDispatch, useSelector } from 'react-redux';
+import Progress from '../../../components/progressbar/progress';
 
 
 const theme = createTheme();
 
 export default function SignInSide() {
+    const userInfo: any = useSelector((user: any) => user.user)
+    const dispatch = useDispatch();
     const navigate = useNavigate()
     const [error, setError] = React.useState(false)
     const [emailID, setEmailId] = React.useState('')
     const [password, setPassword] = React.useState('')
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         setError(true)
         event.preventDefault();
-        console.log(emailID, password);
+        dispatch(await userActions.authenticate(emailID, password))
+
     };
+    React.useEffect(() => {
+        if (userInfo.loginMessage === "User login successfully") {
+            localStorage.setItem('user', JSON.stringify(userInfo?.userInformation));
+            navigate('/')
+        }
+
+    }, [userInfo.loginMessage])
     const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
         color: theme.palette.getContrastText("#FD0560"),
         backgroundColor: "#FD0560",
@@ -98,18 +111,21 @@ export default function SignInSide() {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                            Sign In
+                                Sign In
                             </ColorButton>
-
+                            <Typography style={userInfo?.loginMessage === "User login successfully" ? { color: "black " } : { color: "red" }}>{userInfo?.loginMessage}</Typography>
                             <Grid container>
-                                <Grid item xs>
+                                {/* <Grid item xs>
                                     
-                                </Grid>
-                                <Grid item>
+                                </Grid> */}
+                                <Grid >
                                     <Link className='link' onClick={() => navigate('/sign-up')} variant="body2">
                                         {"Don't have an account? Sign Up"}
                                     </Link>
                                 </Grid>
+
+                                {/* ::::::::: {JSON.stringify(userInfo?.loginMessage)} */}
+
                             </Grid>
                         </Box>
                     </Box>

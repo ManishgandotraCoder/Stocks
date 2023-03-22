@@ -16,11 +16,12 @@ app.use(bodyParser.urlencoded({ 'extended': false }));
 app.use(passprt.initialize());
 (passport)(passprt);
 app.use(bearerToken());
+app.use(cors())
+
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/api', routes);
 app.use(express.static('./build'));
 
-app.use(cors())
 app.get('*', (req: any, res: any, next: any) => {
   res.sendFile(path.resolve(__dirname, './build', 'index.html'));
 });

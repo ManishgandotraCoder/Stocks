@@ -1,5 +1,5 @@
 import { Toolbar, Box, Switch, Typography, Menu, MenuItem,  Button, AppBar } from "@mui/material"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppIcon from "../../images/icon2.png"
 import "./topbar.scss"
 import StorefrontIcon from '@mui/icons-material/Storefront';
@@ -10,15 +10,21 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
+
 const Header = () => {
   const [login, setLogin] = useState(false)
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
-  
+  const [name , setName] = React.useState('')
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
-
+  useEffect(()=>{
+    const user :any= localStorage.getItem('user')
+    const _user = JSON.parse(user)
+    setLogin(true)
+    setName(_user.name)
+  },[])
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -60,6 +66,7 @@ const Header = () => {
           </Typography>
           {login ? <>
             <AccountCircleTwoToneIcon className="tool_icon" />&nbsp;&nbsp;
+            <span className="tool_icon" >Welcome {name} &nbsp;&nbsp;</span>
           </> :
             <span className="tool_icon" onClick={() => navigate('/sign-in')}>SIGN IN&nbsp;&nbsp;</span>}
           <DarkModeTwoToneIcon className="tool_icon" />

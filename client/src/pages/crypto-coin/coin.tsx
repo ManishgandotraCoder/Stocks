@@ -11,7 +11,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { Col, Row, Spin, Radio } from "antd";
+import { Col, Row, Radio } from "antd";
 import "./coin.scss";
 import axios from "axios"
 import { useParams } from 'react-router-dom';
