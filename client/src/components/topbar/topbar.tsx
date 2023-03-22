@@ -22,8 +22,11 @@ const Header = () => {
   useEffect(() => {
     const user: any = localStorage.getItem('user')
     const _user = JSON.parse(user)
-    setLogin(true)
-    setName(_user?.name)
+    if (_user && _user.name){
+      setLogin(true)
+      setName(_user?.name)
+  
+    }
   }, [])
   const handleClose = () => {
     setAnchorEl(null);
