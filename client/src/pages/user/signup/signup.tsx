@@ -24,7 +24,6 @@ export default function SignUp() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         setError(true)
         event.preventDefault();
-        console.log(emailID, password);
     };
     const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
         color: theme.palette.getContrastText("#FD0560"),

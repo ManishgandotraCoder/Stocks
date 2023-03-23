@@ -78,7 +78,7 @@ const Header = () => {
             <span className="tool_icon" >Welcome {name} &nbsp;&nbsp;</span>
           </> :
             <span className="tool_icon" onClick={() => navigate('/sign-in')}>SIGN IN&nbsp;&nbsp;</span>}
-          <DarkModeTwoToneIcon className="tool_icon" />
+          {/* <DarkModeTwoToneIcon className="tool_icon" /> */}
 
           <Menu
             id="demo-positioned-menu"
@@ -98,6 +98,7 @@ const Header = () => {
             {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
             <MenuItem onClick={handleClose}>My account</MenuItem> */}
             <MenuItem onClick={logout}>Logout</MenuItem>
+            
           </Menu>
 
         </Toolbar>

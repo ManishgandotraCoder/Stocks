@@ -1,11 +1,11 @@
 import * as cryptoApi from "../apis/crypto.api"
 import * as cryptoTypes from "../constants/crypto.types"
 
-export const getData = async () => {
-    const response: any = await cryptoApi.getData()
+export const getData = async (currency:string) => {
+    const response: any = await cryptoApi.getData(currency)
     return {
         type: cryptoTypes.default.GET_ALL_CRYPTO,
-        payload: response.data
+        payload: response
     }
 
 

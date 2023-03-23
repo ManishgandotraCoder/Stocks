@@ -1,12 +1,16 @@
-const initialState = 0;
+const initialState = {
+    crypoList: [],
+    crypto_graph_details: [],
+    crypto_coin_details: {}
+};
 const change = (state = initialState, action: any) => {
     switch (action.type) {
         case "GET_ALL_CRYPTO":
-            return action.payload;
+            return { ...state, crypoList: action.payload?.data?.body};
         case "COIN_DETAILS":
-            return { c_details: action.payload };
+            return { ...state, crypto_coin_details: action.payload?.body };
         case "COIN_GRAPH":
-            return { c_graph_details: action.payload };
+            return { ...state , crypto_graph_details: action.payload?.body};
 
         default: return state;
     }

@@ -1,7 +1,9 @@
 import axios from "axios"
-function getData() {
+const base_url = "http://13.51.70.58:9000/api"
+
+function getData(currency: string) {
     try {
-        return axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1000&page=1&sparkline=false`)
+        return axios.get(`${base_url}/crypto/getCrypto/${currency}`)
     }
     catch {
         return false
@@ -10,7 +12,11 @@ function getData() {
 
 function getCoinGraph(coin: string, currency: string, days: Number) {
     try {
-        return axios.get(`https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=${currency}&days=${days}`)
+        return axios.post(`${base_url}/crypto/getCryptoGraph`, {
+            coin: coin,
+            days: days,
+            currency: currency
+        })
     }
     catch {
         return false
@@ -18,7 +24,7 @@ function getCoinGraph(coin: string, currency: string, days: Number) {
 }
 function getCoinDetails(coin: string) {
     try {
-        return axios.get(`https://api.coingecko.com/api/v3/coins/${coin}`)
+        return axios.get(`${base_url}/crypto/getCryptoDetails/${coin}`)
     }
     catch {
         return false

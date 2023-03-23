@@ -6,4 +6,6 @@ export const msg ={
     USER_ALREADY_EXISTS:"User Already exists",
     USER_LOGIN_SUCCESS:"User login successfully",
     INVALID_CREDENTIALS:"Invalid Credentials",
+    FETCHED_CRYPTO_CURRENCIES:"Fetched currencies successfully",
+    FETCHED_CRYPTO_GRAPHS:"Fetched graph successfully"
 }
