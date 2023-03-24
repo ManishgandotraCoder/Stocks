@@ -5,7 +5,7 @@ function getData(currency: string) {
     try {
         return axios.get(`${base_url}/crypto/getCrypto/${currency}`)
     }
-    catch {
+    catch { 
         return false
     }
 }
