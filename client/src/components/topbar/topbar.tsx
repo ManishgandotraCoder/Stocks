@@ -1,6 +1,6 @@
 import { Toolbar, Box, Switch, Typography, Menu, MenuItem, Button, AppBar } from "@mui/material"
 import React, { useEffect, useState } from "react";
-import AppIcon from "../../images/icon2.png"
+import AppIcon from "../../images/icon.png"
 import "./topbar.scss"
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import FiberNewIcon from '@mui/icons-material/FiberNew';
@@ -22,10 +22,10 @@ const Header = () => {
   useEffect(() => {
     const user: any = localStorage.getItem('user')
     const _user = JSON.parse(user)
-    if (_user && _user.name){
+    if (_user && _user.name) {
       setLogin(true)
       setName(_user?.name)
-  
+
     }
   }, [])
   const handleClose = () => {
@@ -40,10 +40,11 @@ const Header = () => {
 
   return <>
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar >
-        <Toolbar style={{ background: '#000' }} variant="dense" >
+
+      <AppBar elevation={0}>
+        <Toolbar style={{ background: '#FFF' }} variant="dense" >
           <img className="img" src={AppIcon} />&nbsp;
-          <Typography className="dms" onClick={() => navigate('/')}> Capital $tocks</Typography>
+          <span className="dms" onClick={() => navigate('/')}> Capital $tocks</span>
 
           {/* <span onMouseOver={handleClick} className="icon_text">Discover</span>  <ArrowDropDownIcon className="icon_text2" />
           <Menu
@@ -98,7 +99,8 @@ const Header = () => {
             {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
             <MenuItem onClick={handleClose}>My account</MenuItem> */}
             <MenuItem onClick={logout}>Logout</MenuItem>
-            
+            <MenuItem >View Profile</MenuItem>
+
           </Menu>
 
         </Toolbar>

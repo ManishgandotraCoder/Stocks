@@ -41,10 +41,10 @@ export default function SignInSide() {
 
     }, [userInfo.loginMessage])
     const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
-        color: theme.palette.getContrastText("#FD0560"),
-        backgroundColor: "#FD0560",
+        color: theme.palette.getContrastText("rgb(21, 136, 243)"),
+        backgroundColor: "rgb(21, 136, 243)",
         '&:hover': {
-            backgroundColor: "#FD0560",
+            backgroundColor: "rgb(21, 136, 243)",
         },
     }));
     return (
@@ -89,7 +89,6 @@ export default function SignInSide() {
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
-                                size="small"
                                 error={emailID ? false : error}
                             />
                             <TextField
@@ -98,7 +97,6 @@ export default function SignInSide() {
                                 fullWidth
                                 onChange={(e) => setPassword(e.target.value)}
                                 value={password}
-                                size="small"
                                 name="password"
                                 label="Password"
                                 type="password"
