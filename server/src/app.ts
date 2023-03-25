@@ -8,9 +8,45 @@ import { connect } from './config/mongo-db';
 import { routes } from "./routes/route";
 import * as dotenv from "dotenv";
 import { passport } from "./passport"
+
+
+
 dotenv.config();
 const port = process.env.PORT || 9000;
 const app = express();
+
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"]
+  }
+});
+app.use(function (req: any, res: any, next: any) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Request-Headers");
+  res.header("Access-Control-Allow-Headers", "Content-Type, authorization");
+  next();
+});
+
+io.on('connection', (socket: any) => {
+  socket.on('example_message', function (msg: any) {
+    console.log('message: ' + msg);
+  });
+  // socket.on('call', function (method: any, param: any, callbackFn: any) { // call method, param, 
+  //   switch (method) {
+  //     case "Get crypto List":
+  //       callbackFn(null, { name: Math.floor(Math.random() * 10) });
+  //       break;
+  //   }
+  // });
+});
+io.listen(8000);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ 'extended': false }));
 app.use(passprt.initialize());
@@ -26,15 +62,9 @@ app.get('*', (req: any, res: any, next: any) => {
   res.sendFile(path.resolve(__dirname, './build', 'index.html'));
 });
 
-app.use(function (req: any, res: any, next: any) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Request-Headers");
-  res.header("Access-Control-Allow-Headers", "Content-Type, authorization");
-  next();
-});
-
+// server.listen(8000, () => {
+//   console.log('listening on *:8000');
+// });
 app.listen(port, async () => {
   await connect();
   console.log(`Listening on port ${port}`);
