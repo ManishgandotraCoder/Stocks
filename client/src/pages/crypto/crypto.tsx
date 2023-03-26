@@ -13,8 +13,6 @@ import { useEffect, useState } from "react";
 import * as CryptoActions from "./../../redux/actions/crypto.actions"
 import "./crypto.scss"
 import Progress from '../../components/progressbar/progress';
-import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8000');
 
 export default function StickyHeadTable() {
     const [page, setPage] = React.useState(0);
@@ -26,17 +24,6 @@ export default function StickyHeadTable() {
         setPage(newPage);
         setLoader(false)
     };
-    const sendSocketIO = () => {
-        socket.emit('example_message', 'qqdemo');
-        // socket.emit("call", "Get crypto List", "param", (err: any, res: unknown) => {
-        //     console.log(res);
-            
-        // });
-
-    }
-    useEffect(()=>{
-        sendSocketIO()
-    },[])
     const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
         setLoader(true)
         setRowsPerPage(+event.target.value);

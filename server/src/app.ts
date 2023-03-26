@@ -17,13 +17,13 @@ const app = express();
 
 const http = require('http');
 const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = require("socket.io")(server, {
-  cors: {
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST"]
-  }
-});
+// const { Server } = require("socket.io");
+// const io = require("socket.io")(server, {
+//   cors: {
+//     origin: "http://localhost:3000",
+//     methods: ["GET", "POST"]
+//   }
+// });
 app.use(function (req: any, res: any, next: any) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Credentials", "true");
@@ -33,18 +33,7 @@ app.use(function (req: any, res: any, next: any) {
   next();
 });
 
-io.on('connection', (socket: any) => {
-  socket.on('example_message', function (msg: any) {
-    console.log('message: ' + msg);
-  });
-  // socket.on('call', function (method: any, param: any, callbackFn: any) { // call method, param, 
-  //   switch (method) {
-  //     case "Get crypto List":
-  //       callbackFn(null, { name: Math.floor(Math.random() * 10) });
-  //       break;
-  //   }
-  // });
-});
+
 io.listen(8000);
 
 app.use(bodyParser.json());
