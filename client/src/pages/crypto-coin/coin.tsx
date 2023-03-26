@@ -20,6 +20,26 @@ import Typography from '@mui/material/Typography';
 import Progress from '../../components/progressbar/progress';
 import * as CryptoActions from "./../../redux/actions/crypto.actions"
 import { useDispatch, useSelector } from 'react-redux';
+import ChartistGraph from 'react-chartist';
+
+var data = {
+  labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
+  series: [
+    [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
+  ]
+};
+
+var options_chart = {
+  high: 10,
+  low: -10,
+  axisX: {
+    labelInterpolationFnc: function (value: any, index: any) {
+      return index % 2 === 0 ? value : null;
+    }
+  }
+};
+
+var type = 'Bar'
 
 ChartJS.register(
   CategoryScale,
@@ -41,8 +61,6 @@ export const options = {
 };
 
 export default function Coin() {
-  const typeCoininfo: any = {}
-  const [coinInfo, setCoinInfo] = useState(typeCoininfo);
   const [loader, setLoader] = useState(true)
   const [day, setDay] = useState(1)
   const [typegraph, setTypegraph] = useState('prices')
@@ -53,11 +71,11 @@ export default function Coin() {
 
   async function getData(day: Number) {
     setLoader(true)
-    dispatch(await CryptoActions.getCoinGraph(coin+'', 'usd', day))
+    dispatch(await CryptoActions.getCoinGraph(coin + '', 'usd', day))
     setLoader(false)
   }
   async function getCoinInfo() {
-    dispatch(await CryptoActions.getCoinDetails(coin+''))
+    dispatch(await CryptoActions.getCoinDetails(coin + ''))
 
   }
 

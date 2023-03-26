@@ -1,3 +1,3 @@
 export default {
-    title :"Capital $tocks"
+    title :"Currency Flow"
 }

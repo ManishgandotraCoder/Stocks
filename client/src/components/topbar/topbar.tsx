@@ -44,7 +44,7 @@ const Header = () => {
       <AppBar elevation={0}>
         <Toolbar style={{ background: '#FFF' }} variant="dense" >
           <img className="img" src={AppIcon} />&nbsp;
-          <span className="dms" onClick={() => navigate('/')}> Capital $tocks</span>
+          <span className="dms" onClick={() => navigate('/')}> Currency Flow</span>
 
           {/* <span onMouseOver={handleClick} className="icon_text">Discover</span>  <ArrowDropDownIcon className="icon_text2" />
           <Menu
