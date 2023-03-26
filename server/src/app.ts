@@ -34,7 +34,7 @@ app.use(function (req: any, res: any, next: any) {
 });
 
 
-io.listen(8000);
+// io.listen(8000);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ 'extended': false }));
