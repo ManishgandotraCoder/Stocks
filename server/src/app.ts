@@ -12,7 +12,7 @@ import { passport } from "./passport"
 
 
 dotenv.config();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 const app = express();
 
 const http = require('http');

@@ -1,5 +1,5 @@
 import axios from "axios"
-const base_url = "http://currencyflow.in/api"
+const base_url = "http://currencyflow.in:9000/api"
 
 function getData(currency: string) {
     try {
