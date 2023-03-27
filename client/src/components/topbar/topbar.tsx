@@ -1,6 +1,6 @@
 import { Toolbar, Box, Switch, Typography, Menu, MenuItem, Button, AppBar } from "@mui/material"
 import React, { useEffect, useState } from "react";
-import AppIcon from "../../images/icon.png"
+import AppIcon from "../../images/testicon.png"
 import "./topbar.scss"
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import FiberNewIcon from '@mui/icons-material/FiberNew';
@@ -42,7 +42,7 @@ const Header = () => {
     <Box sx={{ flexGrow: 1 }}>
 
       <AppBar elevation={0}>
-        <Toolbar style={{ background: '#FFF' }} variant="dense" >
+        <Toolbar style={{ background: '#FFF', padding:'3px' }} variant="dense" >
           <img className="img" src={AppIcon} />&nbsp;
           <span className="dms" onClick={() => navigate('/')}> Currency Flow</span>
 
