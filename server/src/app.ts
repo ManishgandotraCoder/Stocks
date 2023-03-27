@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import passprt from "passport";
-import path from "path";
+import path from "path"; 
 import bodyParser from "body-parser";
 import bearerToken from 'express-bearer-token';
 import { connect } from './config/mongo-db';
