@@ -1,6 +1,6 @@
 import {
   Route,
-  Routes,
+  Routes,  
 } from "react-router-dom";
 import Topbar from "./components/topbar/topbar"
 import router from "./route/route"
