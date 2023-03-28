@@ -1,8 +1,9 @@
 import axios from "axios"
-const base_url = "http://currencyflow.in:9000/api/login"
+import base_url from "../../constants/path"
+
 function authenticate(email: string, password: string) {
     try {
-        return axios.post(base_url, {
+        return axios.post(`${base_url}login`, {
             email: email,
             password: password
         })

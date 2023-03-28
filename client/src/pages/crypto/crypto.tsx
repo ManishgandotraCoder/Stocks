@@ -16,6 +16,9 @@ import Progress from '../../components/progressbar/progress';
 
 export default function StickyHeadTable() {
     const [page, setPage] = React.useState(0);
+    const [limit, setLimit] = React.useState(10);
+    const [currency, setCurrency] = React.useState('btc');
+    
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [loader, setLoader] = React.useState(true);
 
@@ -39,7 +42,7 @@ export default function StickyHeadTable() {
         getData()
     }, [])
     async function getData() {
-        dispatch(await CryptoActions.getData('usd'))
+        dispatch(await CryptoActions.getData(currency, page , limit ))
         setLoader(false)
     }
     return (
@@ -115,7 +118,7 @@ export default function StickyHeadTable() {
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={coinlist.crypoList.length}
+                    count={coinlist?.crypoList?.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

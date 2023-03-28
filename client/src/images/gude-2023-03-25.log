@@ -1,2 +1,0 @@
-16:22:24:765 [WARN]	Request Failed. ErrorCode: 32 errorMessage: Network Error, Send Request Failed. WinHTTP Connection Error. last error code = 12030 
-16:22:43:688 [WARN]	Request Failed. ErrorCode: 29 errorMessage: Timeout, Send Request Failed t=38484

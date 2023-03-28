@@ -4,6 +4,7 @@ export const cryptorouter = express.Router();
 import * as controller from "../controllers/main-controller"
 import * as middleware from "../middlewares"
 import passport from "passport"
+
 cryptorouter.get('/getCrypto/:currency',
     controller.crypto.getAllCrypto
 )

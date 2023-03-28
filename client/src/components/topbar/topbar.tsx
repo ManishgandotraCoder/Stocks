@@ -42,7 +42,7 @@ const Header = () => {
     <Box sx={{ flexGrow: 1 }}>
 
       <AppBar elevation={0}>
-        <Toolbar style={{ background: '#FFF', padding:'3px' }} variant="dense" >
+        <Toolbar style={{ background: '#000', padding:'3px' }} variant="dense" >
           <img className="img" src={AppIcon} />&nbsp;
           <span className="dms" onClick={() => navigate('/')}> Currency Flow</span>
 
@@ -76,9 +76,8 @@ const Header = () => {
             <AccountCircleTwoToneIcon className="tool_icon" id="demo-positioned-button" onClick={(e: any) => handleClick(e)}
               aria-controls={open ? 'demo-positioned-menu' : undefined} aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined} />&nbsp;&nbsp;
-            <span className="tool_icon" >Welcome {name} &nbsp;&nbsp;</span>
           </> :
-            <span className="tool_icon" onClick={() => navigate('/sign-in')}>SIGN IN&nbsp;&nbsp;</span>}
+            <span className="tool_icon" onClick={() => navigate('/sign-in')}>Sign In&nbsp;&nbsp;</span>}
           {/* <DarkModeTwoToneIcon className="tool_icon" /> */}
 
           <Menu
@@ -98,8 +97,9 @@ const Header = () => {
           >
             {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
             <MenuItem onClick={handleClose}>My account</MenuItem> */}
-            <MenuItem onClick={logout}>Logout</MenuItem>
+            <MenuItem >Hello {name}</MenuItem>
             <MenuItem >View Profile</MenuItem>
+            <MenuItem onClick={logout}>Logout</MenuItem>
 
           </Menu>
 

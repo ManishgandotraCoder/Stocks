@@ -1,10 +1,7 @@
 import { Response, Request, NextFunction } from "express";
 import { helper } from '../helpers/response-helper';
-import { UserModel } from '../models/user.model'
 import * as express from "express";
 import { msg } from "../helpers/messages"
-import jwt from "jsonwebtoken";
-import nodemailer from "nodemailer";
 
 import * as dotenv from "dotenv";
 import axios from 'axios';
@@ -15,7 +12,7 @@ dotenv.config();
 export class CryptoController {
     async getAllCrypto(req: Request, res: express.Response, next: NextFunction) {
         try {
-            const base_url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${req.params.currency}&order=market_cap_desc&per_page=1000&page=1&sparkline=false`
+            const base_url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${req.params.currency}&order=market_cap_desc&per_page=${req.query.limit}&page=${req.query.page}&sparkline=false`
             let data = await axios.get(base_url)
             helper.success(res, msg.FETCHED_CRYPTO_CURRENCIES, data.data)
         } catch (e) {

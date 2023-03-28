@@ -25,7 +25,7 @@ export default function SignInSide() {
     const [error, setError] = React.useState(false)
     const [emailID, setEmailId] = React.useState('')
     const [password, setPassword] = React.useState('')
-    const [loader , setLoader]= React.useState(false)
+    const [loader, setLoader] = React.useState(false)
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         setError(true)
         setLoader(true)
@@ -49,29 +49,32 @@ export default function SignInSide() {
     }));
     return (
         <ThemeProvider theme={theme}>
-            <Grid container component="main" sx={{ height: 'calc(100vh )' }}>
+            <Grid container component="main" sx={{ height:   'calc(100vh)' }} >
                 <CssBaseline />
-                <Grid
+                <Grid style={{ backgroundColor: "#000", marginTop: "40px" }}
                     item
-                    xs={false}
-                    sm={4}
-                    md={7}
+                    // xs={false}
+                    // sm={4}
+                    // // p={50 }
+                    md={5}
+                    // mt={10}
                     sx={{
-                        backgroundImage: 'url(https://img.etimg.com/thumb/msid-89705853,width-650,height-488,imgsize-44124,,resizemode-75/crypto.jpg)',
+                        backgroundImage: 'url(https://www.tradesmarter.com/images/tradesmarter-trading-software.png)',
                         backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'cover',
+                        // backgroundSize: 'cover',
                         backgroundPosition: 'center',
                     }}
                 />
-                <Grid item xs={12} sm={8} md={5} component={Paper} square>
+                <Grid item xs={12} sm={8} md={7} >
                     <Box
                         sx={{
                             my: 8,
                             mx: 4,
-                            mt: 10,
+                            mt: 15,
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
+
                         }}
                     >
                         <Typography component="h1" variant="h5">
@@ -83,6 +86,7 @@ export default function SignInSide() {
                                 required
                                 fullWidth
                                 id="email"
+                                size='small'
                                 onChange={(e) => setEmailId(e.target.value)}
                                 value={emailID}
                                 label="Email Address"
@@ -95,6 +99,7 @@ export default function SignInSide() {
                                 margin="normal"
                                 required
                                 fullWidth
+                                size='small'
                                 onChange={(e) => setPassword(e.target.value)}
                                 value={password}
                                 name="password"
@@ -114,7 +119,7 @@ export default function SignInSide() {
                                 Sign In
                             </ColorButton>
                             <Typography style={userInfo?.loginMessage === "User login successfully" ? { color: "black " } : { color: "red" }}>{userInfo?.loginMessage}</Typography>
-                            {loader ? <CircularProgress className='progress' color="inherit"/> :""}
+                            {loader ? <CircularProgress className='progress' color="inherit" /> : ""}
                             <Grid container>
                                 {/* <Grid item xs>
                                     
