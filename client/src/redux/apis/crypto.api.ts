@@ -1,9 +1,9 @@
 import axios from "axios"
-const base_url = "http://currencyflow.in:9000/api"
+import base_url from "../../constants/path"
 
 function getData(currency: string) {
     try {
-        return axios.get(`${base_url}/crypto/getCrypto/${currency}`)
+        return axios.get(`${base_url}crypto/getCrypto/${currency}`)
     }
     catch { 
         return false
@@ -12,7 +12,7 @@ function getData(currency: string) {
 
 function getCoinGraph(coin: string, currency: string, days: Number) {
     try {
-        return axios.post(`${base_url}/crypto/getCryptoGraph`, {
+        return axios.post(`${base_url}crypto/getCryptoGraph`, {
             coin: coin,
             days: days,
             currency: currency
@@ -24,7 +24,7 @@ function getCoinGraph(coin: string, currency: string, days: Number) {
 }
 function getCoinDetails(coin: string) {
     try {
-        return axios.get(`${base_url}/crypto/getCryptoDetails/${coin}`)
+        return axios.get(`${base_url}crypto/getCryptoDetails/${coin}`)
     }
     catch {
         return false
