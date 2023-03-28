@@ -8,22 +8,27 @@ const router = [
   {
     path: "/",
     element: <Crypto />,
+    toolbar: true
   },
   {
     path: "/crypto",
     element: <Crypto />,
+    toolbar: true
   },
   {
     path: "/crypto/:coin",
-    element: <Coin />
+    element: <Coin />,
+    toolbar: true
   },
   {
     path: "/sign-in",
-    element: <Login />
+    element: <Login />,
+    toolbar: false
   },
   {
     path: "/sign-up",
-    element: <Signup />
+    element: <Signup />,
+    toolbar: false
   }
 ];
 export default router;
