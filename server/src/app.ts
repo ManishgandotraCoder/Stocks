@@ -12,7 +12,7 @@ import { passport } from "./passport"
 
 
 dotenv.config();
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 9001;
 const app = express();
 
 const http = require('http');
@@ -42,14 +42,13 @@ app.use(passprt.initialize());
 (passport)(passprt);
 app.use(bearerToken());
 app.use(cors())
+app.use('/api', routes);
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
-app.use('/api', routes);
-app.use(express.static('./../../client/build_front'));
+app.use(express.static('./build'));
 
 app.get('*', (req: any, res: any, next: any) => {
-  
-  res.sendFile(path.resolve(__dirname, './../../client/build_front', 'index.html'));
+  res.sendFile(path.resolve(__dirname, './build', 'index.html'));
 });
 
 // server.listen(8000, () => {

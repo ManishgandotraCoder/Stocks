@@ -1,15 +1,12 @@
 import {
   Route,
-  Routes,  
+  Routes,
 } from "react-router-dom";
 import Topbar from "./components/topbar/topbar"
 import router from "./route/route"
 import { ConfigProvider } from 'antd';
-import { useEffect } from "react";
 
 const App = () => {
-
-  useEffect(() => { }, [window.location.href])
   return <>
     <ConfigProvider
       theme={{
@@ -18,7 +15,6 @@ const App = () => {
         },
       }}
     >
-
       <Routes>
         {router.map(rout =>
           <>
@@ -26,9 +22,6 @@ const App = () => {
           </>)}
       </Routes>
     </ConfigProvider>
-
-
   </>;
-
 }
 export default App

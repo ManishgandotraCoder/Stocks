@@ -16,7 +16,8 @@ export class CryptoController {
             let data = await axios.get(base_url)
             helper.success(res, msg.FETCHED_CRYPTO_CURRENCIES, data.data)
         } catch (e) {
-
+            console.log(e);
+            
             helper.server_error(res, msg.SERVER_ERROR, null)
         }
     }
