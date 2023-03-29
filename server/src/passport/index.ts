@@ -9,6 +9,8 @@ const opts = {
 jwtFromRequest : ExtractJWT.fromAuthHeaderAsBearerToken(),
 secretOrKey : process.env.JWT_TOKEN
 }
+console.log(process.env.JWT_TOKEN);
+
 export const passport =(passport:any)=> {
 	passport.use('jwt', new JWTStrategy(opts,
 		async function (jwt_payload, done) {
