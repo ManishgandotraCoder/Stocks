@@ -45,10 +45,10 @@ app.use(cors())
 app.use('/api', routes);
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
-app.use(express.static('./build'));
+app.use(express.static('.././build'));
  
 app.get('*', (req: any, res: any, next: any) => {
-  res.sendFile(path.resolve(__dirname, './build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '.././build', 'index.html'));
 });
 
 // server.listen(8000, () => {
