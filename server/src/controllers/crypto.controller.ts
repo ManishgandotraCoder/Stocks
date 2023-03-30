@@ -5,16 +5,16 @@ import { msg } from "../helpers/messages"
 
 import * as dotenv from "dotenv";
 import axios from 'axios';
-import * as cryptoJson from "./cryptos.json"
+import arr_crypto from "./cryptos"
 
 dotenv.config();
-let cryptoJs : any = cryptoJson
+let cryptoJs : any = arr_crypto
 export class CryptoController {
     async getAllCrypto(req: Request, res: express.Response, next: NextFunction) {
         try {
             const base_url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${req.params.currency}&order=market_cap_desc&per_page=${req.query.limit}&page=${req.query.page}&sparkline=false`
             // let data = await axios.get(base_url)
-            helper.success(res, msg.FETCHED_CRYPTO_CURRENCIES, cryptoJs.default.body)
+            helper.success(res, msg.FETCHED_CRYPTO_CURRENCIES, cryptoJs)
         } catch (e) {
             console.log(e);
             
