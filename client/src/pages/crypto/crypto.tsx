@@ -9,7 +9,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import * as CryptoActions from "./../../redux/actions/crypto.actions"
 import "./crypto.scss"
 import Progress from '../../components/progressbar/progress';

@@ -1,9 +1,7 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import "./login.scss"
-import { useNavigate } from "react-router-dom";
 import * as userActions from "./../../../redux/actions/user.actions"
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress } from '@mui/material';

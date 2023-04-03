@@ -13,31 +13,12 @@ import {
 import { Line } from 'react-chartjs-2';
 import { Col, Row, Radio } from "antd";
 import "./coin.scss";
-import axios from "axios"
 import { useParams } from 'react-router-dom';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Progress from '../../components/progressbar/progress';
 import * as CryptoActions from "./../../redux/actions/crypto.actions"
 import { useDispatch, useSelector } from 'react-redux';
-import ChartistGraph from 'react-chartist';
-
-var data = {
-  labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
-  series: [
-    [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
-  ]
-};
-
-var options_chart = {
-  high: 10,
-  low: -10,
-  axisX: {
-    labelInterpolationFnc: function (value: any, index: any) {
-      return index % 2 === 0 ? value : null;
-    }
-  }
-};
 
 var type = 'Bar'
 

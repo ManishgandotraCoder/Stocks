@@ -1,14 +1,14 @@
-import { Toolbar, Box, Switch, Typography, Menu, MenuItem, Button, AppBar } from "@mui/material"
+import { Toolbar, Box,  Typography, Menu, MenuItem, AppBar } from "@mui/material"
 import React, { useEffect, useState } from "react";
 import AppIcon from "../../images/testicon.png"
 import "./topbar.scss"
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import FiberNewIcon from '@mui/icons-material/FiberNew';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+// import StorefrontIcon from '@mui/icons-material/Storefront';
+// import FiberNewIcon from '@mui/icons-material/FiberNew';
+// import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useNavigate } from "react-router-dom";
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+// import ListItemText from '@mui/material/ListItemText';
+// import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 
 const Header = () => {
