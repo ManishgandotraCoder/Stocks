@@ -303,8 +303,6 @@ export class CryptoController {
                 }
             ])
         } catch (e) {
-            console.log(e);
-            
             helper.server_error(res, msg.SERVER_ERROR, null)
         }
     }

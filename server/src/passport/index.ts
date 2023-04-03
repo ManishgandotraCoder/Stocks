@@ -7,9 +7,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 const opts = {
 jwtFromRequest : ExtractJWT.fromAuthHeaderAsBearerToken(),
-secretOrKey : process.env.JWT_TOKEN || "CURRENCY_FLOW_ETHAN_SPEEDY"
+secretOrKey :  "CURRENCY_FLOW_ETHAN_SPEEDY"
 }
-console.log(process.env.JWT_TOKEN);
 
 export const passport =(passport:any)=> {
 	passport.use('jwt', new JWTStrategy(opts,
