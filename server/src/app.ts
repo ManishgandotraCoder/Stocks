@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import passprt from "passport";
-import path from "path"; 
+import path from "path";
 import bodyParser from "body-parser";
 import bearerToken from 'express-bearer-token';
 import { connect } from './config/mongo-db';
@@ -45,10 +45,10 @@ app.use(cors())
 app.use('/api', routes);
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
-app.use(express.static('.././build'));
- 
+app.use(express.static('./../../client/build'));
+
 app.get('*', (req: any, res: any, next: any) => {
-  res.sendFile(path.resolve(__dirname, '.././build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, './../../client/build', 'index.html'));
 });
 
 // server.listen(8000, () => {
