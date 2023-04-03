@@ -42,7 +42,7 @@ const Header = () => {
     <Box sx={{ flexGrow: 1 }}>
 
       <AppBar elevation={0}>
-        <Toolbar style={{ background: '#000', padding:'3px' }} variant="dense" >
+        <Toolbar style={{ background: '#FFF', padding:'3px' }} variant="dense" >
           <img className="img" src={AppIcon} />&nbsp;
           <span className="dms" onClick={() => navigate('/')}> Currency Flow</span>
 

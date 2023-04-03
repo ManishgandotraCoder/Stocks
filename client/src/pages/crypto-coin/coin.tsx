@@ -133,7 +133,7 @@ export default function Coin() {
                   {
                     data: graph.crypto_graph_details?.[typegraph].map((coin: any) => coin[1]),
                     label: `Price ( Past ${day} Days ) in ${'usd'}`,
-                    borderColor: "rgb(55, 234, 247)",
+                    borderColor: "#1588F3",
                   },
                 ],
               }}
